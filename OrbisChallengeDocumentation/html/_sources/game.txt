@@ -1,0 +1,114 @@
+The Game
+========
+
+Game Overview
+--------------
+
+.. figure:: images/bornloser.png
+	:align: center
+
+Above is a screenshot of a game in progress. Player 1 controls the orange trail while Player 2 controls the blue trail.
+
+The main objective is to avoid the walls and trails left by yourself and your opponent. The first person to crash into a wall or trail loses while the other player can continue travelling for bonus points if the playon variable is set to false. Please note that in the grading and competition format playon will be set to false.
+
+The game is played in a series of turns.
+
+Turns
+~~~~~~
+At the beginning of a turn, you get an update of the gameboard at that time. This includes the layout of the board and if either player has a powerup.
+
+You then have a limited amount of time to respond with a move instruction. If you do not respond within the time limit, you continue in the direction you were headed in on your previous turn. For any turn, you move one space provided that you have not already hit a wall or trail.
+
+Once the responses are processed, another update is sent to the players and another move is requested.
+
+Dying
+~~~~~~
+You die if you run into a wall, a light trail, or the light cycle of your opponent. If you and your opponent die on the same turn the game results in a tie.
+
+Map Items & Powerups
+---------------------
+There are various things that can appear on the map.
+
+General Board
+~~~~~~~~~~~~~
+
+.. figure:: images/walls.png
+	:align: center
+
+Above is what a 3x3 board could look like. It contains 9 tiles across 3 rows and 3 columns. It can, and from this point on, be represented through a cartesian coordinate system where the top left square is (0,0) and the bottom right square is (2, 2).
+
+Blank squares occupy the bottom right corner, or positions [(1, 1), (2, 2), (1, 2), (2, 1)]. 
+
+Walls occupy positions [(0, 0), (0, 1), (0, 2), (1, 0), (2, 0)].
+
+Light Cycles
+~~~~~~~~~~~~
+.. figure:: images/cycle.png
+	:align: center
+
+Above, at position (1, 1), is the light cycle for Player 2. You can see the light trail (which is dictated by where the light cycle has travelled) behind it in blue. 
+
+Powerups
+~~~~~~~~
+.. figure:: images/powerup.png
+	:align: center
+
+Above is what a powerup looks like. Its contents - explained below - are unknown until you pick it up. To pick it up, you move onto the square that it is located on. In the above picture, it is surrounded by blank tiles.
+
+Powerups do not replenish.
+
+Powerup: Bombs and Landmines
+**********************
+Bombs and landmines both perform in the same way - they destroy any light trail in a 5x5 grid. This grid is determined by the direction you are travelling in when you deployed the Bomb or Landmine.
+
+Bombs destroy any light trail within a 5x4 grid in front of your light cycle and the two squares to your light cycle's left and right. 
+
+.. figure:: images/before-explosion.png
+	:align: center
+
+The yellow light cycle is approaching a power up which happens to be a Bomb and the blue player has already died.
+
+.. figure:: images/explosion.png
+	:align: center
+
+In the above image, the player that detonated the bomb was moving down. As a result, the 5x5 grid below the light cycle was detonated.
+
+Please note that the walls that were placed in the detonation zone were not destroyed.
+
+The red square is purely graphical and is indicative of an explosion.
+
+Powerup: Invincibility
+**********************
+
+Invincibility allows you to move through light trails for 10 turns. You choose when to activate the powerup. You cannot go through walls nor your opponent's light cycle.
+
+.. figure:: images/invincible-before.png
+	:align: center
+
+In the above image, the human player has the Invincibility power up as indicated by the text at the top of the screen.
+
+.. figure:: images/invincible-during.png
+	:align: center
+
+In the above image, the player has activated their powerup and their light trail color has changed to indicate this.
+
+.. figure:: images/invincible-after.png
+	:align: center
+
+In the above image, you can see that the player had used the powerup and travelled through a light trail severing it. Imagine that the light trail is a connected series of tiles - from the head of the light cycle to the starting square. When the light trail is severed, the trail after the severed point - to the beginning of the light trail - is turned grey which can be seen in the above image.
+
+
+Powerup: Bonus Points
+**********************
+
+Bonus points automatically give you 200 extra points. These are added immediately to your score. Visually, a green glow will surround your player.
+
+
+Powerup FAQ
+**********************
+
+Q: What if a light cycle that has a powerup collects another powerup?
+A: You lose your current powerup and now are equipped with the one you just picked up. If the second powerup is a landmine or bonus points you keep the one equipped that you had.
+
+Q: Can I run over my opponent if I have the invincibility powerup?
+A: No, you cannot. You both will die on that turn as if you had a head-on collision without the powerup.

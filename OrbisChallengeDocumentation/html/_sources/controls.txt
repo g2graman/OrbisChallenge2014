@@ -1,0 +1,46 @@
+Controlling your Light Cycle
+=======================
+
+You know how the game works, but how do you make them move? 
+
+
+AI Players
+----------
+
+For light cycles that are controlled by an AI, it will move based on the move instructions sent to them by said AI.
+
+The valid values for a move instructions are listed below.
+
+.. code-block:: java
+	
+	SAME_DIRECTION
+	MOVE_DOWN
+	MOVE_UP
+	MOVE_LEFT
+	MOVE_RIGHT
+
+	// Powerups are activated from the tile you currently are on and not the space you are moving to
+	ACTIVATE_POWERUP
+	ACTIVATE_POWERUP_MOVE_DOWN
+	ACTIVATE_POWERUP_MOVE_UP
+	ACTIVATE_POWERUP_MOVE_LEFT
+	ACTIVATE_POWERUP_MOVE_RIGHT
+
+The move instructions are executed by your light cycle if they are valid moves. Valid moves are defined to be moves that do not move back onto the square you were previously are on. In other terms, you cannot turn around in one move. For example, if your previous move was MOVE_UP, your next move cannot be MOVE_DOWN. It will be instead SAME_DIRECTION. 
+
+Once the AI have sent a move instruction for a given turn, there is no way to change the move instruction. 
+
+.. WARNING::
+  Please note that there is a 100ms time limit for getMove to return.
+
+  If you are traversing the entire board, this could be an issue on the larger 31x31 maps.
+
+  Experiment with the `strict_timeout` argument to see if you ever hit the 100ms ceiling.
+
+  However, you have 1000ms for the first 5 turns to respond.
+
+  The reason for this is that each turn, the server sends a message to the clients detailing what has changed from the previous turn. On the initial turn, the server has to write the entire game board which has to be decoded by the clients and then passed onto your playerAI class. This approached 80ms on some of the larger boards and to account for this you have a more than generous buffer during the initial turns.
+
+  
+
+

@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Java API &mdash; The Orbis Challenge 2014 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="The Orbis Challenge 2014 1.0.0 documentation" href="index.html"/>
+        <link rel="prev" title="Python API" href="pythonapi.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> The Orbis Challenge 2014</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="quick.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#running-the-game-with-the-sample-ai">Running the Game with the sample AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#available-resources">Available Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaide.html">Configuring your IDE (Java only)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#netbeans">Netbeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#eclipse">Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Line Arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-the-server">Starting the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#how-to-configure-the-game-server">How to Configure the Game Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-a-client">Starting a Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-two-ais">Starting Two AIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">Controlling Your Player</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#ai-players">AI Players</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="game.html">The Game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game.html#game-overview">Game Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html#map-items-powerups">Map Items &amp; Powerups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="challenge.html">How the Competition is Structured</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#submissions">Submissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#grading-scheme">Grading Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#competition-format">Competition Format</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pythonapi.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#current-turn-number">Current Turn Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Java API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#current-move-number">Current Move Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-to-return">What To Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#questions">Questions?</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Orbis Challenge 2014</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Java API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/javaapi.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="java-api">
+<h1>Java API<a class="headerlink" href="#java-api" title="Permalink to this headline">¶</a></h1>
+<p>All of the available information regarding the game is provided to the getMove function in PlayerAI.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Don&#8217;t change the function definition for getMove. This function is called by the client code (which you also shouldn&#8217;t modify) because when you submit your file only your PlayerAI file and any additional libraries are kept and any client code is removed. Thus, if you change the method, your code will cause an Exception and ultimately invalidate all of your work.</p>
+<p class="last">The same warning applies to newGame. Although this is only called once so an exception here may be less catastrophic it is still avoidable provided you heed this warning.</p>
+</div>
+<div class="section" id="the-game-map">
+<h2>The Game Map<a class="headerlink" href="#the-game-map" title="Permalink to this headline">¶</a></h2>
+<p>The game map is represented as a 2D array and is accessible through the map variable that is passed to getMove. The board is represented as a 2D array and each tile has an associated cartesian coordinate with the top left tile being (0, 0).</p>
+<div class="figure align-center">
+<img alt="_images/uoft.png" src="_images/uoft.png" />
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">map</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">25</span><span class="o">;</span> <span class="c1">// true</span>
+<span class="n">map</span><span class="o">.</span><span class="na">isOccupied</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// true</span>
+<span class="n">map</span><span class="o">.</span><span class="na">tileType</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">TileTypeEnum</span><span class="o">.</span><span class="na">WALL</span><span class="o">);</span>       <span class="c1">// true</span>
+<span class="n">map</span><span class="o">.</span><span class="na">tileType</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">TileTypeEnum</span><span class="o">.</span><span class="na">TRAIL</span><span class="o">);</span>      <span class="c1">// true</span>
+<span class="n">map</span><span class="o">.</span><span class="na">tileType</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">TileTypeEnum</span><span class="o">.</span><span class="na">LIGHTCYCLE</span><span class="o">);</span> <span class="c1">// true</span>
+<span class="n">map</span><span class="o">.</span><span class="na">tileType</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">TileTypeEnum</span><span class="o">.</span><span class="na">POWERUP</span><span class="o">);</span>    <span class="c1">// false</span>
+<span class="c1">// there also is TileTypeEnum.EMPTY</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">map.TileType returns a String. You can check a tile against any string String (provided that it is a valid index) and it will return a boolean.</p>
+</div>
+</div>
+<div class="section" id="the-players">
+<h2>The Players<a class="headerlink" href="#the-players" title="Permalink to this headline">¶</a></h2>
+<p>playerCycle and opponentCycle are LightCycle objects that represent your and your opponent&#8217;s light cycles on a given turn.</p>
+<div class="highlight-java"><pre>current_position = playerCycle.getPosition(); # 2 element integer array
+int x_coordinate = current_position.x; # integer value
+int y_coordinate = current_position.y; # integer value
+
+PlayerDir my_direction = playerCycle.getDirection();
+                                # PlayerDir.UP PlayerDir.DOWN PlayerDir.RIGHT PlayerDir.LEFT
+
+boolean has_powerup = playerCycle.hasPowerup(); # boolean value
+boolean is_invincible = playerCycle.isInvincible(); # boolean value
+if(has_powerup){
+        powerup_type = playerCycle.getPowerup();
+}</pre>
+</div>
+</div>
+<div class="section" id="current-move-number">
+<h2>Current Move Number<a class="headerlink" href="#current-move-number" title="Permalink to this headline">¶</a></h2>
+<p>The current turn that you are responding for.</p>
+</div>
+<div class="section" id="what-to-return">
+<h2>What To Return<a class="headerlink" href="#what-to-return" title="Permalink to this headline">¶</a></h2>
+<p>getMove returns a PlayerAction. Here they are listed for your convenience.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">PlayerAction</span><span class="o">.</span><span class="na">SAME_DIRECTION</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">MOVE_UP</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">MOVE_DOWN</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">MOVE_LEF</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">MOVE_RIGHT</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">ACTIVATE_POWERUP</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">ACTIVATE_POWERUP_MOVE_UP</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">ACTIVATE_POWERUP_MOVE_DOWN</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">ACTIVATE_POWERUP_MOVE_LEFT</span>
+<span class="n">PlayerAction</span><span class="o">.</span><span class="na">ACTIVATE_POWERUP_MOVE_RIGHT</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<p>contact us at <a class="reference external" href="mailto:challenge&#37;&#52;&#48;orbis&#46;com">challenge<span>&#64;</span>orbis<span>&#46;</span>com</a></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="pythonapi.html" class="btn btn-neutral" title="Python API"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Orbis Investment Management Limited..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

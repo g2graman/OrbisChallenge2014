@@ -1,0 +1,74 @@
+Python API
+===========
+
+All of the available information regarding the game is provided to the get_move function in PlayerAI.
+
+.. WARNING::
+  Don't change the function definition for get_move. This function is called by the client code (which you also shouldn't modify) because when you submit your file only your PlayerAI file and any additional libraries are kept and any client code is removed. Thus, if you change the method, your code will cause an Exception and ultimately invalidate all of your work.
+
+  The same warning applies to new_game. Although this is only called once so an exception here may be less catastrophic it is still avoidable provided you heed this warning.
+
+The Game Map
+------------
+The game map is represented as a 2D array and is accessible through the game_map variable that is passed to get_move. The board is represented as a 2D array and each tile has an associated cartesian coordinate with the top left tile being (0, 0).
+
+From the imported Enums.py file, there are some variables representing the name of what could be occupying a board piece. Below is an example.
+
+.. figure:: images/uoft.png
+	:align: center
+
+.. code-block:: python
+	
+	len(game_board) == 25 # true
+	game_board[0][0] == WALL #true
+	game_board[1][1] == TRAIL #true
+	game_board[4][2] == LIGHTCYCLE #true
+	game_board[2][2] == POWERUP #false
+	# there also is EMPTY
+
+.. NOTE::
+	When using double equals, it is comparing two strings. You can check a tile against any string String (provided that it is a valid index) and it will return a boolean.
+	
+	Furthermore, len() returns the number of elements of an array. Indexing in Python begins at 0.
+
+
+The Players
+------------
+
+player_cycle and opponent_cycle are two dictionaries that correspond to the information for your and your opponent's light cycle on a given turn.
+
+.. code-block:: python
+	
+	current_position = player_cycle["position"] # 2 element integer array
+	x_coordinate = current_position[0] # integer value
+	y_coordinate = current_position[1] # integer value
+	
+	my_direction = player_cycle["direction"] # not a string but an Enum. 
+					# Direction.UP Direction.DOWN Direction.RIGHT Direction.LEFT
+	
+	has_powerup = player_cycle["hasPowerup"] # boolean value
+	is_invincible = player_cycle["isInvincible"] # boolean value
+	if has_powerup:
+		powerup_type = player_cycle["powerupType"] 
+
+Current Turn Number
+--------------------
+
+The current turn that you are responding for. 
+
+What To Return
+----------------
+get_move returns a PlayerAction. Here they are listed for your convenience.
+
+.. code-block:: python
+
+	PlayerAction.SAME_DIRECTION
+	PlayerAction.MOVE_UP
+	PlayerAction.MOVE_DOWN
+	PlayerAction.MOVE_LEFT
+	PlayerAction.MOVE_RIGHT
+	PlayerAction.ACTIVATE_POWERUP
+	PlayerAction.ACTIVATE_POWERUP_MOVE_UP
+	PlayerAction.ACTIVATE_POWERUP_MOVE_DOWN
+	PlayerAction.ACTIVATE_POWERUP_MOVE_LEFT
+	PlayerAction.ACTIVATE_POWERUP_MOVE_RIGHT

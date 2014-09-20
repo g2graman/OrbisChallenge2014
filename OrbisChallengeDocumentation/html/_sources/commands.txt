@@ -1,0 +1,109 @@
+Command Line Arguments
+======================
+
+The game is set up into two parts. There is the server, which hosts the game, and the clients, which are the AI players. 
+
+.. _sserver:
+
+Starting the Server
+-------------------
+
+To run the game server, open up terminal or a command line window. Navigate to the extracted devkit folder.  
+
+If you are running Windows, type in::
+
+  runserver.bat 
+
+Otherwise, type in
+
+.. code-block:: bash 
+
+  bash runserver.sh
+
+This will start the game up in it's default configuration. 
+
+.. _args:
+
+How to Configure the Game Server
+--------------------------------
+
+There are two ways to configure the game, either by changing the values in the **tron.properties** file, or by setting options through the **command line**. 
+
+.. note::
+	* tron.properties can be edited using a text editor.
+	* Values passed in through the command line have overwrites values set in the properties files. That is, if option A is set as 1 in the properties file and -1 through the command line, the game will set option A to -1. 
+	* Default values are used when no properties file and no command line arguments are present.
+
+Scroll to the right of the table to see further descriptions for each argument.
+
+
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| Command line        | Properties key       | Default Values  | Possible values                              | What it does                                                                               |
++=====================+======================+=================+==============================================+============================================================================================+
+| guiON               |  guiON               | true            | true, false                                  | Turns the GUI on. Note: is P1AI is true, the GUI will be on                                |
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| port                | port                 | 19999           | 19998, 5000, ...                             | Port for the server to listen to for AI players                                            |
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| strict_timeout      | strict_timeout       | true            | true, false                                  | Whether to wait for a response after 100 ms or move light cycle in current direction       |
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| P1AI                | P1AI                 | false           | true, false                                  | Whether player 1 is an AI via a client or a human controlling the keyboard (WASD keys)     |
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| playon              | playon               | true            | true, false                                  |If true, game plays on until both players are dead. Otherwise game ends when one player dies|
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+| board_layout        | board_layout         |  empty21        | "uoft", "rand", "empty21", "empty31",        | Type of map to be used for the game                                                        | 
+|                     |                      |                 |                                              |                                                                                            |
+|                     |                      |                 |  "empty35", "x", "cornerx", "empty17"        |                                                                                            |
+|                     |                      |                 |                                              | The maps used for grading will be different from these                                     |
+|                     |                      |                 |                                              |                                                                                            |
+|                     |                      |                 |                                              | "rand" provides a random assortment of walls and powerups that place the                   |
+|                     |                      |                 |                                              | on equal footing at the start of the match                                                 |
++---------------------+----------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------+
+
+
+**Example**:
+
+.. code-block:: bash
+
+	runserver.bat localhost 19999 board_layout=empty21
+
+.. _sclient:
+
+Starting a Client
+-----------------
+
+Once the server is started, the server will wait for an incoming connection from a client. 
+
+To start the client, you need to provide the *host* and *port* of the server that you wish to connect to. You also need to provide a name for your player.
+
+Since we are running the game server locally, the host will be **localhost**. The port used will either be the default port **19999** or whatever you have changed it to, either through the command line or set through the properties file. 
+
+Open a new command prompt or terminal and move into the directory where you have the runclient scripts. 
+
+On Windows, type the following to start a client
+
+.. code-block:: bash
+	
+	# JAVA
+	compile.bat 
+	runclient.bat localhost 19999 MyPlayer
+
+	# PYTHON 
+	python runclient.py localhost 19999 MyPlayer
+
+On OSX or Linux machines, type the following to start a client
+
+.. code-block:: bash
+	
+	# JAVA
+	bash compile.sh 
+	bash runclient.sh localhost 19999 MyPlayer
+
+	# PYTHON 
+	python runclient.py localhost 19999 MyPlayer
+
+Make sure the runclient script you are using came from the devkit for the language you are writing for. 
+
+Starting Two AIs
+-------------------------
+
+If you want to have two AIs play against each other, or one AI play itself, open up two terminal windows. Navigate to the respective directories of the AIs that will be playing each other. Now follow the above steps for starting a client twice. Voila!

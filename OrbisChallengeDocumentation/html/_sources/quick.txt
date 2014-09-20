@@ -1,0 +1,156 @@
+Quick Start Guide
+=================
+
+Before you start
+----------------
+.. NOTE::
+  You can program your AI in Java or Python. However, Java is **required** to run the server regardless of what language you use to code your AI.
+
+* Download the appropriate dev kits from your profile page at http://orbischallenge.com/accounts/profile/
+
+Java (Required)
+******************
+
+Run the following from the command line:
+
+::
+
+  > java -version
+
+If the version is 1.8.0_20 or greater, you can continue to the next step. Otherwise, `download <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`__ and install the latest version of JDK from Oracle. Choose the installation file according to your platform. 
+
+.. NOTE::
+  Running The Challenge on a Windows machine and **just installed** Java?
+
+  Click the start button and search for "edit the system environment variables" 
+
+  Click the corresponding application.
+  Under System variables, select the "Path" variable and click edit. 
+
+  Add ";C:\\Program Files\\Java\\jdk1.8.0_20\\bin;""
+
+  Next, look for "JAVA_HOME" and click "Edit..." If it is not listed, click "New..." and set the name to be "JAVA_HOME" 
+
+  Set the value to be "C:\\Program Files\\Java\\jdk1.8.0_20"
+
+
+
+.. NOTE::
+  Running The Challenge on a Windows machine and **just updated** Java?
+
+  Rerun `java -version`
+  
+  Did you get an error message about the registry key and java looking for a certain version and finding another?
+  
+  If so, navigate to C:\\Windows\\System32
+  
+  There should be 3 files - 'java.exe', 'javaw.exe', 'javaws.exe' - move these to another file location temporarily if you 
+  wish to revert to your previous version of Java.
+  
+  Close and reopen the Command Prompt and rerun `java -version` to confirm 1.8.0_20 is the correct version.
+
+Python (Optional - only if you want to program your AI in Python)
+*******************************************************************
+
+Run the following from the command line:
+::
+
+  > python --version
+
+If the version is not 2.7.5 or if python is not a recogized command, `download <https://www.python.org/download/releases/2.7.5/>`__ and install the appropriate version. Rerun this command to ensure that Python 2.7.5 is now being used.
+
+Next, install protobuf if you are using Python. This will allow your client to send messages to the server:
+::
+  # If you don't have pip installed, we have included the download script as get-pip.py
+  # >python get-pip.py will install pip
+  # Add the Scripts folder to your Path variable (See below)
+  
+  > pip install protobuf
+
+.. NOTE::
+  Running The Challenge on a Windows machine and **just installed** Python?
+
+  Then you will need to modify an Environment Variable.
+  Click the start button and search for "edit the system environment variables" and click the corresponding application.
+  Under System variables, select the "Path" variable and click edit.
+  If you are using Python, add ";C:\\Python27;C:\\Python27\\Scripts;""
+
+
+
+
+Running the Game with the sample AI
+------------------------------------
+
+.. NOTE::
+  tron.properties is configured to be 1 human player versus the computer. If you wish to play two AIs against one another, in tron.properties, set P1AI to true.
+
+  You control the player on the left hand side of the screen with WASD to move UP, LEFT, DOWN, and RIGHT, respectively.
+
+#. Extract the dev kit.
+
+#. Open two Terminal windows. 
+
+#. Navigate to the extracted devkit in each window. 
+
+#. Run the following commands in the appropriate window:
+
+Windows
+~~~~~~~~~
+In the first window:
+::
+
+  > runserver.bat
+
+If it is a Java client, run the following in the second window:
+::
+
+  > compile.bat
+  > runclient.bat localhost 19999 tronplayer
+
+.. NOTE::
+  You may get a Windows Security Alert when you first run the server. This is because it is communicating to the clients on a local port.
+  Allow Java to communicate on the Private network.
+
+For Python, run the following in the second window (Python):
+::
+
+  > python runclient.py localhost 19999 tronplayer
+
+
+Linux/Mac
+~~~~~~~~~
+In the first window:
+::
+
+  > sh runserver.sh
+
+If it is a Java client, run the following in the second window:
+::
+
+  > sh compile.sh
+  > sh runclient.sh localhost 19999 tronplayer
+
+For Python, run the following in both the second and third terminal windows (Python):
+::
+
+  > python runclient.py localhost 19999 tronplayer
+
+Exhilarating!
+
+Once you are able to run the game with the default AI player, you can start making changes to the source code located inside the bombmanplayer folder in your dev kit. 
+
+If you run into any problems, email challenge@orbis.com with any questions that you may have.  
+
+Available Resources
+-------------------
+
+The following pages in this documentation should be helpful to you with the Challenge:
+
+* :doc:`What is Tron? <game>` - Explains the overall game, and all the different things that can show up on the game map
+* :ref:`How to configure the game server <args>` - How to turn on debug mode, changing the number of turns per game, etc
+* :ref:`Grading Scheme <grading>` - How the submissions will be judged
+
+Documentation for the code provided in the dev kit can be found here: 
+
+* :doc:`Java <javaapi>`
+* :doc:`Python <pythonapi>`

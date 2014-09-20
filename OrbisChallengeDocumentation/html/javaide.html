@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up your Java IDE &mdash; The Orbis Challenge 2014 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="The Orbis Challenge 2014 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Command Line Arguments" href="commands.html"/>
+        <link rel="prev" title="Quick Start Guide" href="quick.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> The Orbis Challenge 2014</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#running-the-game-with-the-sample-ai">Running the Game with the sample AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#available-resources">Available Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Configuring your IDE (Java only)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#netbeans">Netbeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse">Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Line Arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-the-server">Starting the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#how-to-configure-the-game-server">How to Configure the Game Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-a-client">Starting a Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">Controlling Your Player</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#ai-players">AI Players</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="game.html">The Game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game.html#game-overview">Game Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html#map-items-powerups">Map Items &amp; Powerups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="challenge.html">How the Competition is Structured</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#submissions">Submissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#grading-scheme">Grading Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#competition-format">Competition Format</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pythonapi.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#your-player-number">Your Player Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#current-turn-number">Current Turn Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaapi.html">Java API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#your-player-number">Your Player Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#current-move-number">Current Move Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Orbis Challenge 2014</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Setting up your Java IDE</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/javaide.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="setting-up-your-java-ide">
+<h1>Setting up your Java IDE<a class="headerlink" href="#setting-up-your-java-ide" title="Permalink to this headline">¶</a></h1>
+<p>An IDE can help with coding. Popular IDE choices are Eclipse and Netbeans.</p>
+<div class="section" id="netbeans">
+<h2>Netbeans<a class="headerlink" href="#netbeans" title="Permalink to this headline">¶</a></h2>
+<p>To code with Netbeans, you can set up a client project as follows:</p>
+<ol class="arabic simple">
+<li>File-&gt;New Project</li>
+<li>Choose Java, Java Project with Existing Sources. Click Next.</li>
+<li>Enter in an appropriate Project name and Project Folder. Click Next.</li>
+<li>Add the tronplayer folder from the dev kit to the Source Package Folders. Click Finish.</li>
+<li>Once the project is created, add in the required .jar files by right clicking on the Libraries folder in the Project viewer and select Add Jar/Folder...</li>
+</ol>
+<img alt="_images/javaAddJars.png" class="align-center" src="_images/javaAddJars.png" />
+<ol class="arabic simple" start="6">
+<li>Select tron.jar that was included in the dev kit.</li>
+<li>Repeat steps 5 and 6 for javaclient.jar inside the lib folder included in the dev kit.</li>
+<li>Start coding!</li>
+<li>To run the your AI with NetBeans, you can add arguments by right-clicking the Project in the Project viewer and select Properties.</li>
+<li>Fill out Main Class and Arguments as shown in the image. Change the port and name if necessary.</li>
+</ol>
+<img alt="_images/javaNetbeans2.png" class="align-center" src="_images/javaNetbeans2.png" />
+<ol class="arabic simple" start="11">
+<li>You can now start a client through NetBeans!</li>
+</ol>
+</div>
+<div class="section" id="eclipse">
+<h2>Eclipse<a class="headerlink" href="#eclipse" title="Permalink to this headline">¶</a></h2>
+<p>You can set up a new project with the java client code as follows:</p>
+<ol class="arabic simple">
+<li>File-&gt;New-&gt;Project, select &#8220;Java Project&#8221;</li>
+</ol>
+<img alt="_images/javaEclipse1.png" class="align-center" src="_images/javaEclipse1.png" />
+<ol class="arabic simple" start="2">
+<li>Uncheck &#8220;Use default location.&#8221; Select the location of the dev kit. Make sure you are using &#8220;JavaSE-1.8&#8221; or &#8220;jre8&#8221;. Click Next.</li>
+</ol>
+<img alt="_images/javaEclipse2.png" class="align-center" src="_images/javaEclipse2.png" />
+<ol class="arabic simple" start="3">
+<li>Make sure that tronplayer is both the source and output folder. Check the box &#8220;Allow output folders for source.&#8221; The default output folder should be set to the tronplayer folder.</li>
+</ol>
+<img alt="_images/javaEclipse3.png" class="align-center" src="_images/javaEclipse3.png" />
+<ol class="arabic simple" start="4">
+<li>In the Libraries tab, make sure both tron.jar and javaclient.jar are added. If not, you can add them through &#8220;Add JARs...&#8221;. Click Finish to create this project.</li>
+</ol>
+<img alt="_images/javaEclipse4.png" class="align-center" src="_images/javaEclipse4.png" />
+<ol class="arabic simple" start="5">
+<li>If given the option, use the Java perspective. The project is now set up, and you can start coding!</li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li>To run the project with Eclipse, you have to create a new Run Configuration. This can be set through Run-&gt;Run Configuration.</li>
+</ol>
+<img alt="_images/javaEclipse5.1.png" class="align-center" src="_images/javaEclipse5.1.png" />
+<ol class="arabic simple" start="7">
+<li>From the menu on the left-hand side, right click on &#8220;Java Application&#8221; and select New. Configure Main, Arguments and JRE tabs as follows, changing Project to reflect your Project name:</li>
+</ol>
+<img alt="_images/javaEclipse5.2.png" class="align-center" src="_images/javaEclipse5.2.png" />
+<img alt="_images/javaEclipse5.3.png" class="align-center" src="_images/javaEclipse5.3.png" />
+<img alt="_images/javaEclipse5.4.png" class="align-center" src="_images/javaEclipse5.4.png" />
+<ol class="arabic simple" start="8">
+<li>Click &#8220;Apply&#8221; and &#8220;Close&#8221;. Once that is done, you can now start a client through Eclipse!</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will still need to run the server from the command line.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands.html" class="btn btn-neutral float-right" title="Command Line Arguments"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quick.html" class="btn btn-neutral" title="Quick Start Guide"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Orbis Investment Management Limited..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

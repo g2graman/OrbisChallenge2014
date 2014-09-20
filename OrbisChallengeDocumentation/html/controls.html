@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controlling your Light Cycle &mdash; The Orbis Challenge 2014 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="The Orbis Challenge 2014 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="The Game" href="game.html"/>
+        <link rel="prev" title="Command Line Arguments" href="commands.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> The Orbis Challenge 2014</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#running-the-game-with-the-sample-ai">Running the Game with the sample AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick.html#available-resources">Available Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaide.html">Configuring your IDE (Java only)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#netbeans">Netbeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#eclipse">Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Line Arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-the-server">Starting the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#how-to-configure-the-game-server">How to Configure the Game Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-a-client">Starting a Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-two-ais">Starting Two AIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Controlling Your Player</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ai-players">AI Players</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="game.html">The Game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game.html#game-overview">Game Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html#map-items-powerups">Map Items &amp; Powerups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="challenge.html">How the Competition is Structured</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#submissions">Submissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#grading-scheme">Grading Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#competition-format">Competition Format</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pythonapi.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#current-turn-number">Current Turn Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaapi.html">Java API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#current-move-number">Current Move Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Orbis Challenge 2014</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Controlling your Light Cycle</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/controls.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="controlling-your-light-cycle">
+<h1>Controlling your Light Cycle<a class="headerlink" href="#controlling-your-light-cycle" title="Permalink to this headline">¶</a></h1>
+<p>You know how the game works, but how do you make them move?</p>
+<div class="section" id="ai-players">
+<h2>AI Players<a class="headerlink" href="#ai-players" title="Permalink to this headline">¶</a></h2>
+<p>For light cycles that are controlled by an AI, it will move based on the move instructions sent to them by said AI.</p>
+<p>The valid values for a move instructions are listed below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">SAME_DIRECTION</span>
+<span class="n">MOVE_DOWN</span>
+<span class="n">MOVE_UP</span>
+<span class="n">MOVE_LEFT</span>
+<span class="n">MOVE_RIGHT</span>
+
+<span class="c1">// Powerups are activated from the tile you currently are on and not the space you are moving to</span>
+<span class="n">ACTIVATE_POWERUP</span>
+<span class="n">ACTIVATE_POWERUP_MOVE_DOWN</span>
+<span class="n">ACTIVATE_POWERUP_MOVE_UP</span>
+<span class="n">ACTIVATE_POWERUP_MOVE_LEFT</span>
+<span class="n">ACTIVATE_POWERUP_MOVE_RIGHT</span>
+</pre></div>
+</div>
+<p>The move instructions are executed by your light cycle if they are valid moves. Valid moves are defined to be moves that do not move back onto the square you were previously are on. In other terms, you cannot turn around in one move. For example, if your previous move was MOVE_UP, your next move cannot be MOVE_DOWN. It will be instead SAME_DIRECTION.</p>
+<p>Once the AI have sent a move instruction for a given turn, there is no way to change the move instruction.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Please note that there is a 100ms time limit for getMove to return.</p>
+<p>If you are traversing the entire board, this could be an issue on the larger 31x31 maps.</p>
+<p>Experiment with the <cite>strict_timeout</cite> argument to see if you ever hit the 100ms ceiling.</p>
+<p>However, you have 1000ms for the first 5 turns to respond.</p>
+<p class="last">The reason for this is that each turn, the server sends a message to the clients detailing what has changed from the previous turn. On the initial turn, the server has to write the entire game board which has to be decoded by the clients and then passed onto your playerAI class. This approached 80ms on some of the larger boards and to account for this you have a more than generous buffer during the initial turns.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="game.html" class="btn btn-neutral float-right" title="The Game"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="commands.html" class="btn btn-neutral" title="Command Line Arguments"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Orbis Investment Management Limited..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+Java API
+=========
+
+All of the available information regarding the game is provided to the getMove function in PlayerAI.
+
+.. WARNING::
+  Don't change the function definition for getMove. This function is called by the client code (which you also shouldn't modify) because when you submit your file only your PlayerAI file and any additional libraries are kept and any client code is removed. Thus, if you change the method, your code will cause an Exception and ultimately invalidate all of your work.
+
+  The same warning applies to newGame. Although this is only called once so an exception here may be less catastrophic it is still avoidable provided you heed this warning.
+
+The Game Map
+------------
+The game map is represented as a 2D array and is accessible through the map variable that is passed to getMove. The board is represented as a 2D array and each tile has an associated cartesian coordinate with the top left tile being (0, 0).
+
+.. figure:: images/uoft.png
+	:align: center
+
+.. code-block:: java
+	
+	map.length() == 25; // true
+	map.isOccupied(0, 0); // true
+	map.tileType(0, 0).equals(TileTypeEnum.WALL);       // true
+	map.tileType(1, 1).equals(TileTypeEnum.TRAIL);      // true
+	map.tileType(4, 2).equals(TileTypeEnum.LIGHTCYCLE); // true
+	map.tileType(2, 2).equals(TileTypeEnum.POWERUP);    // false
+	// there also is TileTypeEnum.EMPTY
+
+.. NOTE::
+	map.TileType returns a String. You can check a tile against any string String (provided that it is a valid index) and it will return a boolean.
+	
+
+
+The Players
+------------
+
+playerCycle and opponentCycle are LightCycle objects that represent your and your opponent's light cycles on a given turn.
+
+.. code-block:: java
+	
+	current_position = playerCycle.getPosition(); # 2 element integer array
+	int x_coordinate = current_position.x; # integer value
+	int y_coordinate = current_position.y; # integer value
+	
+	PlayerDir my_direction = playerCycle.getDirection();
+					# PlayerDir.UP PlayerDir.DOWN PlayerDir.RIGHT PlayerDir.LEFT
+	
+	boolean has_powerup = playerCycle.hasPowerup(); # boolean value
+	boolean is_invincible = playerCycle.isInvincible(); # boolean value
+	if(has_powerup){
+		powerup_type = playerCycle.getPowerup();
+	}
+		
+
+Current Move Number
+--------------------
+
+The current turn that you are responding for. 
+
+
+What To Return
+----------------
+getMove returns a PlayerAction. Here they are listed for your convenience.
+
+.. code-block:: java
+
+	PlayerAction.SAME_DIRECTION
+	PlayerAction.MOVE_UP
+	PlayerAction.MOVE_DOWN
+	PlayerAction.MOVE_LEF
+	PlayerAction.MOVE_RIGHT
+	PlayerAction.ACTIVATE_POWERUP
+	PlayerAction.ACTIVATE_POWERUP_MOVE_UP
+	PlayerAction.ACTIVATE_POWERUP_MOVE_DOWN
+	PlayerAction.ACTIVATE_POWERUP_MOVE_LEFT
+	PlayerAction.ACTIVATE_POWERUP_MOVE_RIGHT
+
+Questions?
+--------------
+contact us at challenge@orbis.com

@@ -1,0 +1,99 @@
+The Challenge
+=============
+
+Here is where you can find information on how to do well in the Challenge. 
+
+Every submission will play at least 6 games against different opponents.
+
+.. _submissions:
+
+Submissions
+-----------
+
+Follow the following steps when you are ready to submit your submission. 
+
+1. Make sure all your source code and external libraries are in the tronplayer and lib directories respectively.
+
+2. Compress tronplayer and the lib directory into an archive and name it after your team name. 
+
+.. Note::
+	* We only accept .zip files that are under 5 MB in size. 
+	* The libraries that came in the dev kits will be replaced when grading, so feel free to exclude them when creating your archive.
+	* Feel free to exclude the lib directory entirely if you did not use any external libraries.  
+
+3. Upload your newly created archives at the event/submit page on The Challenge website.
+
+.. Note::	
+	You're welcome to submit more than once, only your latest submission before the submission deadline will be graded.
+
+.. _grading:
+
+Grading Scheme
+--------------
+
+Each submission is graded as follows: 
+
+.. math::
+
+	outcome\_score + bonus\_scores
+
+Scores are calculated at the end of the game, and logged in an XML file when the match is completed. Scores are **not** kept during the game.
+
+Outcome score
+`````````````
+
+The :math:`outcome\_score` of a game differs depending on whether you won, lost or tied the game. Points are awarded as follows: 
+
+===== ====
+Win   1000
+Tie   300
+Loss  0
+===== ====
+
+Bonus score
+```````````
+
+Bonus points are awarded by based on your interactions with power ups and time survived. 
+
+Time is measured as the number of tiles travelled by your light cycle. You are rewarded 1 point per square traversed.
+
+Powerup bonuses are awarded as follows: 
+
+50 points per powerup collected and 200 bonus points per Bonus Points powerup collected.
+
+
+Competition Format
+--------------------
+
+Grading is split into two parts. First is the preliminaries, in which your submission will play against 3 different opponents which we will be providing. The top 15 from the preliminaries will move to the second round, where they'll be playing against everyone else in the top 15. 
+
+Settings
+````````
+
+All games will be played on the following settings: 
+
+	* Minimum board size of 13, maximum board size of 31
+	* Max amount of time waiting for responses = 100 milliseconds
+	* Server and clients will all be running on the same machine.
+
+Preliminaries
+`````````````
+
+First your submission will play against 3 opponents of various difficulties.
+
+First up is a 2-round match against **the Born Loser**. As its name suggests, this AI is very easily killed.
+
+Second up is a 3-round match against **the Rookie**. It's a bit smarter than the Born Loser, but it won't be putting much of a fight.
+
+Finally, you play a 2-round match against **the Contender**. This will demarcate the truly strong entries.
+
+
+Round Robin Finals
+`````````
+
+Suppose your submission made it to the top 15. Congratulations! There are 14 other player here with you, so it's time to battle it out. You'll be playing a 3-round match against each opponent, it's time to show them who's the boss!
+
+Presentations
+`````````````
+
+Not only do you have to code well, you should also be able to communicate your ideas fluently too. The teams that have their submissions land in the top 5 after the playoffs are asked to give a short presentation and talk about the problems they've faced, and how they've overcame them.

@@ -1,0 +1,38 @@
+.. tron documentation master file, created by
+   sphinx-quickstart on Mon Jul 28 20:19:46 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome!
+================================
+This year's Orbis Challenge will involve creating an AI for Tron. 
+
+.. NOTE::
+  Even if you are familiar with Tron, you should still read the documentation. There are modifications to the gameplay as well as the scoring.
+
+
+Setting Up
+----------
+.. toctree::
+   :maxdepth: 3
+   
+   Quick Start Guide <quick>
+   Configuring your IDE (Java only) <javaide>
+   Command Line Arguments <commands>
+   Controlling Your Player <controls>
+
+What is Tron?
+-------------
+.. toctree::
+   :maxdepth: 3
+   
+   The Game <game>
+   How the Competition is Structured <challenge>
+
+API Documentation
+-----------------
+.. toctree::
+   :maxdepth: 3
+   
+   Python API <pythonapi>
+   Java API <javaapi>

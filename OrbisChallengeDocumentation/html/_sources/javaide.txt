@@ -1,0 +1,89 @@
+
+Setting up your Java IDE
+========================
+
+An IDE can help with coding. Popular IDE choices are Eclipse and Netbeans. 
+
+Netbeans
+````````
+
+To code with Netbeans, you can set up a client project as follows:
+
+1. File->New Project
+
+2. Choose Java, Java Project with Existing Sources. Click Next.
+
+3. Enter in an appropriate Project name and Project Folder. Click Next. 
+
+4. Add the tronplayer folder from the dev kit to the Source Package Folders. Click Finish. 
+
+5. Once the project is created, add in the required .jar files by right clicking on the Libraries folder in the Project viewer and select Add Jar/Folder...
+
+.. image:: images/javaAddJars.png
+	:align: center
+
+6. Select tron.jar that was included in the dev kit. 
+
+7. Repeat steps 5 and 6 for javaclient.jar inside the lib folder included in the dev kit. 
+
+8. Start coding!
+
+9. To run the your AI with NetBeans, you can add arguments by right-clicking the Project in the Project viewer and select Properties. 
+
+10. Fill out Main Class and Arguments as shown in the image. Change the port and name if necessary. 
+
+.. image:: images/javaNetbeans2.png 
+	:align: center
+
+11. You can now start a client through NetBeans!
+
+
+Eclipse
+```````
+
+You can set up a new project with the java client code as follows: 
+
+1. File->New->Project, select "Java Project"
+
+.. image:: images/javaEclipse1.png
+	:align: center
+
+2. Uncheck "Use default location." Select the location of the dev kit. Make sure you are using "JavaSE-1.8" or "jre8". Click Next. 
+
+.. image:: images/javaEclipse2.png
+	:align: center
+
+3. Make sure that tronplayer is both the source and output folder. Check the box "Allow output folders for source." The default output folder should be set to the tronplayer folder. 
+
+.. image:: images/javaEclipse3.png
+	:align: center
+
+4. In the Libraries tab, make sure both tron.jar and javaclient.jar are added. If not, you can add them through "Add JARs...". Click Finish to create this project. 
+
+.. image:: images/javaEclipse4.png
+	:align: center
+
+5. If given the option, use the Java perspective. The project is now set up, and you can start coding! 
+
+--------------
+
+6. To run the project with Eclipse, you have to create a new Run Configuration. This can be set through Run->Run Configuration. 
+
+.. image:: images/javaEclipse5.1.png
+	:align: center
+
+7. From the menu on the left-hand side, right click on "Java Application" and select New. Configure Main, Arguments and JRE tabs as follows, changing Project to reflect your Project name:
+
+.. image:: images/javaEclipse5.2.png
+	:align: center
+
+.. image:: images/javaEclipse5.3.png
+	:align: center
+
+.. image:: images/javaEclipse5.4.png
+	:align: center
+
+8. Click "Apply" and "Close". Once that is done, you can now start a client through Eclipse!
+
+.. NOTE::
+  You will still need to run the server from the command line.

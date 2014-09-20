@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start Guide &mdash; The Orbis Challenge 2014 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="The Orbis Challenge 2014 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Setting up your Java IDE" href="javaide.html"/>
+        <link rel="prev" title="Welcome!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> The Orbis Challenge 2014</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-game-with-the-sample-ai">Running the Game with the sample AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-resources">Available Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaide.html">Configuring your IDE (Java only)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#netbeans">Netbeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaide.html#eclipse">Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Line Arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-the-server">Starting the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#how-to-configure-the-game-server">How to Configure the Game Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-a-client">Starting a Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#starting-two-ais">Starting Two AIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">Controlling Your Player</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#ai-players">AI Players</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="game.html">The Game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game.html#game-overview">Game Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html#map-items-powerups">Map Items &amp; Powerups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="challenge.html">How the Competition is Structured</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#submissions">Submissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#grading-scheme">Grading Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="challenge.html#competition-format">Competition Format</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pythonapi.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#current-turn-number">Current Turn Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pythonapi.html#what-to-return">What To Return</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="javaapi.html">Java API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-game-map">The Game Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#the-players">The Players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#current-move-number">Current Move Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#what-to-return">What To Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javaapi.html#questions">Questions?</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">The Orbis Challenge 2014</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Quick Start Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/quick.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can program your AI in Java or Python. However, Java is <strong>required</strong> to run the server regardless of what language you use to code your AI.</p>
+</div>
+<ul class="simple">
+<li>Download the appropriate dev kits from your profile page at <a class="reference external" href="http://orbischallenge.com/accounts/profile/">http://orbischallenge.com/accounts/profile/</a></li>
+</ul>
+<div class="section" id="java-required">
+<h3>Java (Required)<a class="headerlink" href="#java-required" title="Permalink to this headline">¶</a></h3>
+<p>Run the following from the command line:</p>
+<div class="highlight-python"><pre>&gt; java -version</pre>
+</div>
+<p>If the version is 1.8.0_20 or greater, you can continue to the next step. Otherwise, <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">download</a> and install the latest version of JDK from Oracle. Choose the installation file according to your platform.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Running The Challenge on a Windows machine and <strong>just installed</strong> Java?</p>
+<p>Click the start button and search for &#8220;edit the system environment variables&#8221;</p>
+<p>Click the corresponding application.
+Under System variables, select the &#8220;Path&#8221; variable and click edit.</p>
+<p>Add &#8221;;C:\Program Files\Java\jdk1.8.0_20\bin;&#8221;&#8220;</p>
+<p>Next, look for &#8220;JAVA_HOME&#8221; and click &#8220;Edit...&#8221; If it is not listed, click &#8220;New...&#8221; and set the name to be &#8220;JAVA_HOME&#8221;</p>
+<p class="last">Set the value to be &#8220;C:\Program Files\Java\jdk1.8.0_20&#8221;</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Running The Challenge on a Windows machine and <strong>just updated</strong> Java?</p>
+<p>Rerun <cite>java -version</cite></p>
+<p>Did you get an error message about the registry key and java looking for a certain version and finding another?</p>
+<p>If so, navigate to C:\Windows\System32</p>
+<p>There should be 3 files - &#8216;java.exe&#8217;, &#8216;javaw.exe&#8217;, &#8216;javaws.exe&#8217; - move these to another file location temporarily if you
+wish to revert to your previous version of Java.</p>
+<p class="last">Close and reopen the Command Prompt and rerun <cite>java -version</cite> to confirm 1.8.0_20 is the correct version.</p>
+</div>
+</div>
+<div class="section" id="python-optional-only-if-you-want-to-program-your-ai-in-python">
+<h3>Python (Optional - only if you want to program your AI in Python)<a class="headerlink" href="#python-optional-only-if-you-want-to-program-your-ai-in-python" title="Permalink to this headline">¶</a></h3>
+<p>Run the following from the command line:</p>
+<div class="highlight-python"><pre>&gt; python --version</pre>
+</div>
+<p>If the version is not 2.7.5 or if python is not a recogized command, <a class="reference external" href="https://www.python.org/download/releases/2.7.5/">download</a> and install the appropriate version. Rerun this command to ensure that Python 2.7.5 is now being used.</p>
+<p>Next, install protobuf if you are using Python. This will allow your client to send messages to the server:</p>
+<div class="highlight-python"><pre># If you don't have pip installed, we have included the download script as get-pip.py
+# &gt;python get-pip.py will install pip
+# Add the Scripts folder to your Path variable (See below)
+
+&gt; pip install protobuf</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Running The Challenge on a Windows machine and <strong>just installed</strong> Python?</p>
+<p class="last">Then you will need to modify an Environment Variable.
+Click the start button and search for &#8220;edit the system environment variables&#8221; and click the corresponding application.
+Under System variables, select the &#8220;Path&#8221; variable and click edit.
+If you are using Python, add &#8221;;C:\Python27;C:\Python27\Scripts;&#8221;&#8220;</p>
+</div>
+</div>
+</div>
+<div class="section" id="running-the-game-with-the-sample-ai">
+<h2>Running the Game with the sample AI<a class="headerlink" href="#running-the-game-with-the-sample-ai" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>tron.properties is configured to be 1 human player versus the computer. If you wish to play two AIs against one another, in tron.properties, set P1AI to true.</p>
+<p class="last">You control the player on the left hand side of the screen with WASD to move UP, LEFT, DOWN, and RIGHT, respectively.</p>
+</div>
+<ol class="arabic simple">
+<li>Extract the dev kit.</li>
+<li>Open two Terminal windows.</li>
+<li>Navigate to the extracted devkit in each window.</li>
+<li>Run the following commands in the appropriate window:</li>
+</ol>
+<p>In the first window:</p>
+<div class="highlight-python"><pre>&gt; runserver.bat</pre>
+</div>
+<p>If it is a Java client, run the following in the second window:</p>
+<div class="highlight-python"><pre>&gt; compile.bat
+&gt; runclient.bat localhost 19999 tronplayer</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may get a Windows Security Alert when you first run the server. This is because it is communicating to the clients on a local port.
+Allow Java to communicate on the Private network.</p>
+</div>
+<p>For Python, run the following in the second window (Python):</p>
+<div class="highlight-python"><pre>&gt; python runclient.py localhost 19999 tronplayer</pre>
+</div>
+<p>In the first window:</p>
+<div class="highlight-python"><pre>&gt; sh runserver.sh</pre>
+</div>
+<p>If it is a Java client, run the following in the second window:</p>
+<div class="highlight-python"><pre>&gt; sh compile.sh
+&gt; sh runclient.sh localhost 19999 tronplayer</pre>
+</div>
+<p>For Python, run the following in both the second and third terminal windows (Python):</p>
+<div class="highlight-python"><pre>&gt; python runclient.py localhost 19999 tronplayer</pre>
+</div>
+<p>Exhilarating!</p>
+<p>Once you are able to run the game with the default AI player, you can start making changes to the source code located inside the bombmanplayer folder in your dev kit.</p>
+<p>If you run into any problems, email <a class="reference external" href="mailto:challenge&#37;&#52;&#48;orbis&#46;com">challenge<span>&#64;</span>orbis<span>&#46;</span>com</a> with any questions that you may have.</p>
+</div>
+<div class="section" id="available-resources">
+<h2>Available Resources<a class="headerlink" href="#available-resources" title="Permalink to this headline">¶</a></h2>
+<p>The following pages in this documentation should be helpful to you with the Challenge:</p>
+<ul class="simple">
+<li><a class="reference internal" href="game.html"><em>What is Tron?</em></a> - Explains the overall game, and all the different things that can show up on the game map</li>
+<li><a class="reference internal" href="commands.html#args"><em>How to configure the game server</em></a> - How to turn on debug mode, changing the number of turns per game, etc</li>
+<li><a class="reference internal" href="challenge.html#grading"><em>Grading Scheme</em></a> - How the submissions will be judged</li>
+</ul>
+<p>Documentation for the code provided in the dev kit can be found here:</p>
+<ul class="simple">
+<li><a class="reference internal" href="javaapi.html"><em>Java</em></a></li>
+<li><a class="reference internal" href="pythonapi.html"><em>Python</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="javaide.html" class="btn btn-neutral float-right" title="Setting up your Java IDE"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Orbis Investment Management Limited..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
