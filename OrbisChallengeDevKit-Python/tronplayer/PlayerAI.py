@@ -10,12 +10,10 @@ class PlayerAI():
     def new_game(self, game_map, player_lightcycle, opponent_lightcycle):
         return
 
-    def get_move(self, game_map, player_lightcycle, opponent_lightcycle, moveNumber, m=[]):
+    def get_move(self, game_map, player_lightcycle, opponent_lightcycle, moveNumber):
         m = self.mmax(game_map, player_lightcycle, opponent_lightcycle)
         if(m == []):
-            my_x = player_lightcycle["position"][0]
-            my_y = player_lightcycle["position"][1]
-
+            my_x, my_y = player_lightcycle["position"]
             moves = self.moves(game_map, my_x, my_y, player_lightcycle)
             randMove = random.randint(0, len(moves))
             return moves[randMove - 1]
@@ -153,30 +151,30 @@ class PlayerAI():
             direc_y = 0
         return (direc_x, direc_y)
 
+    def _is_crashed(self, g_map, pos_p, pos_opp):
+        pos = g_map[pos_p[0]][pos_p[1]]
+
+        return (pos == WALL or pos == TRAIL
+                or pos_p == pos_opp)
+
     def is_terminal(self, g_map, p_cyc, opp_cyc):
-        my_pos_x = p_cyc['position'][0]
-        my_pos_y = p_cyc['position'][1]
-        opp_pos_x = opp_cyc['position'][0]
-        opp_pos_y = opp_cyc['position'][1]
+        NOT_TERMINAL = []
+        WIN = ["p"]
+        LOSE = ["opp"]
+        TIE = WIN + LOSE
 
-        next_pos_me = g_map[my_pos_x][my_pos_y]
-        crash_me = next_pos_me == WALL or next_pos_me == TRAIL \
-            or (my_pos_x == opp_pos_x and my_pos_y == opp_pos_y)
+        pos_p = p_cyc['position']
+        pos_opp = opp_cyc['position']
 
-        next_pos_opp = g_map[opp_pos_x][opp_pos_y]
-        crash_opp = next_pos_opp == WALL or next_pos_opp == TRAIL \
-            or (my_pos_x == opp_pos_x and my_pos_y == opp_pos_y)
+        crash_p = self._is_crashed(g_map, pos_p, pos_opp)
+        crash_opp = self._is_crashed(g_map, pos_opp, pos_p)
 
-        if(crash_me):
-            if(crash_opp):
-                result = ["p", "opp"]
-            else:
-                result = ["opp"]
+        if(crash_p and crash_pop):
+            result = TIE
+        elif(crash_p):
+            result = LOSE
         elif(crash_opp):
-            if(crash_me):
-                result = ["p", "opp"]
-            else:
-                result = ["p"]
+            result = WIN
         else:
-            result = []
+            result = NOT_TERMINAL
         return result  # result holds the winners in a list
