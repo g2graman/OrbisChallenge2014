@@ -39,26 +39,31 @@ class PlayerAI():
                 return 10
             return -1  # not terminal state
 
+    def _is_invincible(self, game_map, x, y, p_cyc):
+        return game_map[x][y] == POWERUP or p_cyc["isInvincible"]
+
+    def _is_empty(self, game_map, x, y):
+        return game_map[x][y] == EMPTY
+
+    def _is_vacant(self, game_map, x, y, p_cyc):
+        return (0 <= x < len(game_map) or
+                0 <= y < len(game_map)) and \
+            (self._is_invincible(game_map, x, y, p_cyc)
+             or self._is_empty(game_map, x, y))
+
     def moves(self, game_map, my_x, my_y, p_cyc):
         m = []
-        if(my_x >= 0 < len(game_map) - 1 and
-           (game_map[my_x + 1][my_y] == EMPTY
-                or game_map[my_x + 1][my_y] == POWERUP or p_cyc["isInvincible"])):
+        if(self._is_vacant(game_map, my_x + 1, my_y, p_cyc)):
             m.append(PlayerActions.MOVE_RIGHT)
-        if(my_y >= 0 < len(game_map) - 1 and
-           (game_map[my_x][my_y + 1] == EMPTY
-                or game_map[my_x][my_y + 1] == POWERUP or p_cyc["isInvincible"])):
+        if(self._is_vacant(game_map, my_x, my_y + 1, p_cyc)):
             m.append(PlayerActions.MOVE_DOWN)
-        if(my_x > 0 and (game_map[my_x - 1][my_y] == EMPTY
-                         or game_map[my_x - 1][my_y] == POWERUP or p_cyc["isInvincible"])):
+        if(self._is_vacant(game_map, my_x - 1, my_y, p_cyc)):
             m.append(PlayerActions.MOVE_LEFT)
-        if(my_y > 0 and (game_map[my_x][my_y - 1] == EMPTY
-                         or game_map[my_x][my_y - 1] == POWERUP or p_cyc["isInvincible"])):
+        if(self._is_vacant(game_map, my_x, my_y - 1, p_cyc)):
             m.append(PlayerActions.MOVE_UP)
 
         if(m == []):
             # No safe moves
-
             m.append(PlayerActions.SAME_DIRECTION)  # Might as well keep going
 
             # or settle for a draw
