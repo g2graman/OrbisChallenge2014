@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DEVKIT_DIR=OrbisChallengeDevKit-Python
+
+pip &>/dev/null
+if [[ "$?" != "0" ]]; then
+	cd "$DEVKIT_DIR"
+	sudo -H python get-pip.py
+fi
+
+if [[  "$(pip list | grep protobuf)" == "" ]]; then
+	sudo -H pip install protobuf
+fi

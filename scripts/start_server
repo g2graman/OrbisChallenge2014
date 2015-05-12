@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DEVKIT_DIR=OrbisChallengeDevKit-Python
+
+START_SERVER='java -jar lib/tron.jar'
+SERVER=$(ps x | grep "$START_SERVER$" | tr -s ' ' | cut -d' ' -f 5-)
+
+if [[ "$SERVER" != "$START_SERVER" ]]; then
+	cd "$DEVKIT_DIR" && ./runserver.sh &
+	cd ..
+fi

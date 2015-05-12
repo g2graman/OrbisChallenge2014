@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DEVKIT_DIR=OrbisChallengeDevKit-Python
+PORT=19999
+
+cd "$DEVKIT_DIR"
+python runclient.py localhost $PORT tronplayer
+cd ..
