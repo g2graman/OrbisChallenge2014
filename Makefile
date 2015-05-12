@@ -1,6 +1,9 @@
-.PHONY: all run start install
+.PHONY: all run start install clean
 
 all: install start run
+
+clean:
+	@scripts/clean | :
 
 install:
 	@scripts/install | :

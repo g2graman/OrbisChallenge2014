@@ -1,4 +1,5 @@
-import sys, os
+import sys
+import os
 import logging
 import traceback
 
@@ -11,11 +12,11 @@ import Enums
 from PlayerAI import PlayerAI
 
 if __name__ == '__main__':
-        if len(sys.argv) != 4:
-                print "Usage: python runclient.py <host> <port> <playername>"
+    if len(sys.argv) != 4:
+        print "Usage: python runclient.py <host> <port> <playername>"
 
-        else:
-                host = sys.argv[1]
-                port = int(sys.argv[2])
-                playername = sys.argv[3]
-                TronClient().runClient(PlayerAI(), host, port, playername)
+    else:
+        host = sys.argv[1]
+        port = int(sys.argv[2])
+        playername = sys.argv[3]
+        TronClient().runClient(PlayerAI(), host, port, playername)

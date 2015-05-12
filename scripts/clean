@@ -1,0 +1,27 @@
+#!/bin/bash
+
+shopt -s globstar
+
+# directories to omit from deletion for build-caching
+CUR=$(pwd)
+for f in $(sed -r 's/^.{2}//' <(find . | grep .gitignore)); 
+do
+	cd "$(dirname $f)"
+	while read line;
+	do
+		REMOVE=$(sed -r 's/^.{2}//' <(find . -name "$line"))
+		if [[ "$(echo $REMOVE | tr -s ' ')" != "" ]]; then
+			echo "Removing: $REMOVE"
+			rm -rf $REMOVE
+		fi
+	done < <(sed "/^\s*$/d; /^#/d" < .gitignore | uniq | sort)
+	cd "$CUR"
+done
+
+FORMAT_PYTHON=$(sed -r 's/^.{2}//' <(find . -name '*.py'))
+if [[ -n "$FORMAT_PYTHON" ]]; then
+	for script in $FORMAT_PYTHON; do
+		echo "Formatting: $script"
+		autopep8 -j 0 "$script" --in-place
+	done
+fi

@@ -6,8 +6,14 @@ pip &>/dev/null
 if [[ "$?" != "0" ]]; then
 	cd "$DEVKIT_DIR"
 	sudo -H python get-pip.py
+	cd ..
 fi
 
 if [[  "$(pip list | grep protobuf)" == "" ]]; then
 	sudo -H pip install protobuf
+fi
+
+autopep8 &>/dev/null
+if [[ "$?" != "0" ]]; then
+	sudo -H pip install --upgrade autopep8
 fi
