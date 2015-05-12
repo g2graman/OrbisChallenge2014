@@ -3,13 +3,13 @@
 all: install start run
 
 clean:
-	@scripts/clean | :
+	scripts/clean
 
 install:
-	@scripts/install | :
+	scripts/install
 
 start:
-	@scripts/start_server | :
+	scripts/start_server
 
 run:
-	@scripts/run | :
+	scripts/run

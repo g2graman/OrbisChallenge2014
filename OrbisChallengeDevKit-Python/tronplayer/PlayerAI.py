@@ -27,18 +27,17 @@ class PlayerAI():
         if(term != []):
             if(len(term) == 1):
                 if(term[0] != "opp"):
-                    # I win
                     return 1000  # I win
                 else:
-                    return -1000  # I lose
+                    return 0  # I lose
             else:
-                return -10  # tie game
+                return 300  # tie game
         else:
             pos_x = p_cyc["position"][0]
             pos_y = p_cyc["position"][1]
             if(g_map[pos_x][pos_y] == POWERUP):
-                return 5
-            return 0  # not terminal state
+                return 10
+            return -1  # not terminal state
 
     def moves(self, game_map, my_x, my_y, p_cyc):
         m = []
@@ -78,12 +77,12 @@ class PlayerAI():
         player_cyc = p_cyc.copy()
         opponent_cyc = opp_cyc.copy()
         m = []
-        self._mmax(copy_map, player_cyc, opponent_cyc, 8, m)
+        self._mmax(copy_map, player_cyc, opponent_cyc, 0, True, m, 8)
         return m
 
-    def _mmax(self, g_map, p_cyc, opp_cyc, depth=0, max_not_min=True, m=[]):
+    def _mmax(self, g_map, p_cyc, opp_cyc, depth=0, max_not_min=True, m=[], depth_limit=0):
         h = self.heuristic(g_map, p_cyc, opp_cyc)
-        if(depth == 0 or h != 0):
+        if(depth >= depth_limit or h != -1):
             return h
 
         copy_map = g_map[:]
@@ -94,37 +93,14 @@ class PlayerAI():
             cyc_y = player_cyc["position"][1]
             potential_moves = self.moves(copy_map, cyc_x, cyc_y, player_cyc)
             for move in potential_moves:
-                if(move == PlayerActions.MOVE_UP
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and player_cyc["direction"] == Direction.UP)):
-                    direc_x = 0
-                    direc_y = -1
-                elif(move == PlayerActions.MOVE_DOWN
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and player_cyc["direction"] == Direction.DOWN)):
-                    direc_x = 0
-                    direc_y = 1
-                elif(move == PlayerActions.MOVE_LEFT
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and player_cyc["direction"] == Direction.LEFT)):
-                    direc_x = -1
-                    direc_y = 0
-                elif(move == PlayerActions.MOVE_RIGHT
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and player_cyc["direction"] == Direction.RIGHT)):
-                    direc_x = 1
-                    direc_y = 0
-                else:
-                    direc_x = 0
-                    direc_y = 0
-
-                pos_x = cyc_x + direc_x
-                pos_y = cyc_y + direc_y
+                direc_x, direc_y = self._get_direc_vector(
+                    move, player_cyc["direction"])
                 copy_map[cyc_x][cyc_y] = TRAIL
-                player_cyc["position"] = (pos_x, pos_y)
-                copy_map[pos_x][pos_y] = LIGHTCYCLE
+                player_cyc["position"] = (cyc_x + direc_x, cyc_y + direc_y)
+                copy_map[player_cyc["position"][0]][
+                    player_cyc["position"][1]] = LIGHTCYCLE
                 val = self._mmax(
-                    copy_map, player_cyc, opp_cyc, depth - 1, False, m)
+                    copy_map, player_cyc, opp_cyc, depth + 1, False, m)
                 if(val > best):
                     m.append(move)
                     best = max(val, best)
@@ -135,41 +111,42 @@ class PlayerAI():
             cyc_x = opponent_cyc["position"][0]
             cyc_y = opponent_cyc["position"][1]
             for move in self.moves(copy_map, cyc_x, cyc_y, opponent_cyc):
-                if(move == PlayerActions.MOVE_UP
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and opponent_cyc["direction"] == Direction.UP)):
-                    direc_x = 0
-                    direc_y = -1
-                elif(move == PlayerActions.MOVE_DOWN
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and opponent_cyc["direction"] == Direction.DOWN)):
-                    direc_x = 0\
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and opponent_cyc["direction"] == Direction.UP)
-                    direc_y = 1
-                elif(move == PlayerActions.MOVE_LEFT
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and opponent_cyc["direction"] == Direction.LEFT)):
-                    direc_x = -1
-                    direc_y = 0
-                elif(move == PlayerActions.MOVE_RIGHT
-                        or (move == PlayerActions.SAME_DIRECTION
-                            and opponent_cyc["direction"] == Direction.RIGHT)):
-                    direc_x = 1
-                    direc_y = 0
-                else:
-                    direc_x = 0
-                    direc_y = 0
-
-                pos_x = cyc_x + direc_x
-                pos_y = cyc_y + direc_y
+                direc_x, direc_y = self._get_direc_vector(
+                    move, opponent_cyc["direction"])
                 copy_map[cyc_x][cyc_y] = TRAIL
-                opponent_cyc["position"] = (pos_x, pos_y)
-                copy_map[pos_x][pos_y] = LIGHTCYCLE
+                opponent_cyc["position"] = (cyc_x + direc_x, cyc_y + direc_y)
+                copy_map[opponent_cyc["position"][0]][
+                    opponent_cyc["position"][1]] = LIGHTCYCLE
                 val = self._mmax(
-                    copy_map, p_cyc, opponent_cyc, depth - 1, True, m)
+                    copy_map, p_cyc, opponent_cyc, depth + 1, True, m)
                 best = min(val, best)
             return best
+
+    def _get_direc_vector(self, move, direction):
+        if(move == PlayerActions.MOVE_UP
+                or (move == PlayerActions.SAME_DIRECTION
+                    and direction == Direction.UP)):
+            direc_x = 0
+            direc_y = -1
+        elif(move == PlayerActions.MOVE_DOWN
+                or (move == PlayerActions.SAME_DIRECTION
+                    and direction == Direction.DOWN)):
+            direc_x = 0
+            direc_y = 1
+        elif(move == PlayerActions.MOVE_LEFT
+                or (move == PlayerActions.SAME_DIRECTION
+                    and direction == Direction.LEFT)):
+            direc_x = -1
+            direc_y = 0
+        elif(move == PlayerActions.MOVE_RIGHT
+                or (move == PlayerActions.SAME_DIRECTION
+                    and direction == Direction.RIGHT)):
+            direc_x = 1
+            direc_y = 0
+        else:
+            direc_x = 0
+            direc_y = 0
+        return (direc_x, direc_y)
 
     def is_terminal(self, g_map, p_cyc, opp_cyc):
         my_pos_x = p_cyc['position'][0]
