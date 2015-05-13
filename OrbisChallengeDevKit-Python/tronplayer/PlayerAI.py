@@ -126,29 +126,12 @@ class PlayerAI():
             return best
 
     def _get_direc_vector(self, move, direction):
-        if(move == PlayerActions.MOVE_UP
-                or (move == PlayerActions.SAME_DIRECTION
-                    and direction == Direction.UP)):
-            direc_x = 0
-            direc_y = -1
-        elif(move == PlayerActions.MOVE_DOWN
-                or (move == PlayerActions.SAME_DIRECTION
-                    and direction == Direction.DOWN)):
-            direc_x = 0
-            direc_y = 1
-        elif(move == PlayerActions.MOVE_LEFT
-                or (move == PlayerActions.SAME_DIRECTION
-                    and direction == Direction.LEFT)):
-            direc_x = -1
-            direc_y = 0
-        elif(move == PlayerActions.MOVE_RIGHT
-                or (move == PlayerActions.SAME_DIRECTION
-                    and direction == Direction.RIGHT)):
-            direc_x = 1
-            direc_y = 0
+        x = [0, 0, -1, 1]
+        y = [-1, 1, 0, 0]
+        if(move == PlayerActions.SAME_DIRECTION):
+            direc_x, direc_y = x[direction], y[direction]
         else:
-            direc_x = 0
-            direc_y = 0
+            direc_x, direc_y = x[move - 1], y[move - 1]
         return (direc_x, direc_y)
 
     def _is_crashed(self, g_map, pos_p, pos_opp):
