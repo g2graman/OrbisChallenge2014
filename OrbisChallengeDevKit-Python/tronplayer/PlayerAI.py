@@ -10,11 +10,11 @@ class PlayerAI():
     def new_game(self, game_map, player_lightcycle, opponent_lightcycle):
         return
 
-    def get_move(self, game_map, player_lightcycle, opponent_lightcycle, moveNumber):
-        m = self.mmax(game_map, player_lightcycle, opponent_lightcycle)
+    def get_move(self, game_map, p_cyc, opp_cyc, moveNumber):
+        m = self.mmax(game_map, p_cyc, opp_cyc)
         if(m == []):
-            pos_p = player_lightcycle["position"]
-            moves = self.moves(game_map, pos_p, player_lightcycle, opponent_lightcycle)
+            pos_p = p_cyc["position"]
+            moves = self.moves(game_map, pos_p, p_cyc, opp_cyc)
             randMove = random.randint(0, len(moves))
             return moves[randMove - 1]
         else:
@@ -31,8 +31,8 @@ class PlayerAI():
             else:
                 return 300  # tie game
         else:
-            if(0 <= pos_p[0] < l and 0 <= pos_p[1] < l and \
-                g_map[pos_p[0]][pos_p[1]] == POWERUP):
+            if(0 <= pos_p[0] < l and 0 <= pos_p[1] < l and
+                    g_map[pos_p[0]][pos_p[1]] == POWERUP):
                 return 10
         return -1  # not terminal state
 
@@ -58,9 +58,9 @@ class PlayerAI():
              PlayerActions.MOVE_LEFT, PlayerActions.MOVE_UP]
         for i in range(4):
             new_x, new_y = pos_p[0] + x[i], pos_p[1] + y[i]
-            if(0 <= new_x < l and \
-                0 <= new_y < l and \
-                self._is_vacant(game_map, (new_x, new_y), p_cyc)):
+            if(0 <= new_x < l and
+                    0 <= new_y < l and
+                    self._is_vacant(game_map, (new_x, new_y), p_cyc)):
                 m.append(M[i])
 
         if(m == []):
@@ -70,16 +70,16 @@ class PlayerAI():
             # or settle for a draw
             for i in range(4):
                 new_x, new_y = pos_p[0] + x[i], pos_p[1] + y[i]
-                if(0 <= new_x < l and \
-                    0 <= new_y < l and \
-                    game_map[new_x][new_y] == LIGHTCYCLE):
+                if(0 <= new_x < l and
+                        0 <= new_y < l and
+                        game_map[new_x][new_y] == LIGHTCYCLE):
                     m.append(M[i])
-        
+
         MAP = map(
-            lambda e: (e, 
-                self._h(game_map, 
-                    self._get_move_toward(p_cyc, e), 
-                    opp_cyc["position"])), m)
+            lambda e: (e,
+                       self._h(game_map,
+                               self._get_move_toward(p_cyc, e),
+                               opp_cyc["position"])), m)
 
         MAP.sort(key=lambda e: e[1])
         m = map(lambda e: e[0], MAP)
@@ -87,76 +87,71 @@ class PlayerAI():
 
     def mmax(self, g_map, p_cyc, opp_cyc):
         copy_map, m = g_map[:], []
-        self._mmax(copy_map, p_cyc.copy(), opp_cyc.copy(), [0, True, m, 8])
+        self.max_mmax(copy_map, p_cyc.copy(), opp_cyc.copy(), [0, m, 8])
         return m
 
-    def _mmax(self, g_map, p_cyc, opp_cyc, acc=[0, True, [], 0]):
-        depth, max_not_min, m, depth_limit = acc[0], acc[1], acc[2], acc[3]
+    def min_mmax(self, g_map, p_cyc, opp_cyc, acc=[0, [], 0]):
+        depth, m, depth_limit = acc[0], acc[1], acc[2]
         pos_p, pos_opp, l = p_cyc["position"], opp_cyc["position"], len(g_map)
         if(depth >= depth_limit):
             return
+        opponent_cyc, best, copy_map = opp_cyc.copy(), float("inf"), g_map[:]
+        for move in self.moves(copy_map, pos_opp, opponent_cyc, p_cyc):
+            if (not (0 <= pos_opp[0] < l and 0 <= pos_opp[1] < l)):
+                continue
+            copy_map[pos_opp[0]][pos_opp[1]] = TRAIL
+            cyc_x, cyc_y = self._get_move_toward(opponent_cyc, move)
+            if (not (0 <= cyc_x < l and 0 <= cyc_y < l)):
+                continue
+            opponent_cyc["position"] = (cyc_x, cyc_y)
+            copy_map[cyc_x][cyc_y] = LIGHTCYCLE
 
+            self.max_mmax(
+                copy_map, p_cyc, opponent_cyc, [depth + 1, m, depth_limit])
+            val = self._h(g_map, (cyc_x, cyc_y), p_cyc["position"])
+            best = min(val, best)
+
+    def max_mmax(self, g_map, p_cyc, opp_cyc, acc=[0, [], 0]):
+        depth, m, depth_limit = acc[0], acc[1], acc[2]
+        pos_p, pos_opp, l = p_cyc["position"], opp_cyc["position"], len(g_map)
+        if(depth >= depth_limit):
+            return
+        player_cyc = p_cyc.copy()
+        best = float("-inf")
         copy_map = g_map[:]
-        if(max_not_min):
-            player_cyc = p_cyc.copy()
-            best = float("-inf")
-            potential_moves = self.moves(copy_map, pos_p, player_cyc, opp_cyc)
-            for move in potential_moves:
-                if (not (0 <= pos_p[0] < l and 0 <= pos_p[1] < l)):
-                    continue
-                copy_map[pos_p[0]][pos_p[1]] = TRAIL
+        for move in self.moves(copy_map, pos_p, player_cyc, opp_cyc):
+            if (not (0 <= pos_p[0] < l and 0 <= pos_p[1] < l)):
+                continue
+            copy_map[pos_p[0]][pos_p[1]] = TRAIL
+            cyc_x, cyc_y = self._get_move_toward(player_cyc, move)
+            if (not (0 <= cyc_x < l and 0 <= cyc_y < l)):
+                continue
+            player_cyc["position"] = (cyc_x, cyc_y)
+            copy_map[cyc_x][cyc_y] = LIGHTCYCLE
 
-                cyc_x, cyc_y = self._get_move_toward(player_cyc, move)
-                if (not (0 <= cyc_x < l and 0 <= cyc_y < l)):
-                    continue
-                player_cyc["position"] = (cyc_x, cyc_y)
-                copy_map[cyc_x][cyc_y] = LIGHTCYCLE
-
-                self._mmax(
-                    copy_map, player_cyc, opp_cyc, [depth + 1, False, m, depth_limit])
-                val = self._h(g_map, (cyc_x, cyc_y), opp_cyc["position"])
-                if(val > best):
-                    m.append(move)
-                    best = max(val, best)
-        else:
-            opponent_cyc = opp_cyc.copy()
-            best = float("inf")
-            for move in self.moves(copy_map, pos_opp, opponent_cyc, p_cyc):
-                if (not (0 <= pos_opp[0] < l and 0 <= pos_opp[1] < l)):
-                    continue
-                copy_map[pos_opp[0]][pos_opp[1]] = TRAIL
-
-                cyc_x, cyc_y = self._get_move_toward(opponent_cyc, move)
-                if (not (0 <= cyc_x < l and 0 <= cyc_y < l)):
-                    continue
-                opponent_cyc["position"] = (cyc_x, cyc_y)
-                copy_map[cyc_x][cyc_y] = LIGHTCYCLE
-
-                self._mmax(
-                    copy_map, p_cyc, opponent_cyc, [depth + 1, True, m, depth_limit])
-                val = self._h(g_map, (cyc_x, cyc_y), p_cyc["position"])
-                best = min(val, best)
-        return
+            self.min_mmax(
+                copy_map, player_cyc, opp_cyc, [depth + 1, m, depth_limit])
+            val = self._h(g_map, (cyc_x, cyc_y), opp_cyc["position"])
+            if(val > best):
+                m.append(move)
+                best = max(val, best)
 
     def _get_direc_vector(self, move, direction):
         x, y = [0, 0, -1, 1], [-1, 1, 0, 0]
         if(move == PlayerActions.SAME_DIRECTION):
-            direc_x, direc_y = x[direction], y[direction]
-        else:
-            direc_x, direc_y = x[move - 1], y[move - 1]
-        return (direc_x, direc_y)
+            return x[direction], y[direction]
+        return x[move - 1], y[move - 1]
 
     def _get_move_toward(self, p_cyc, move):
         direc_x, direc_y = self._get_direc_vector(move, p_cyc["direction"])
         return (p_cyc["position"][0] + direc_x, p_cyc["position"][1] + direc_y)
 
     def _is_crashed(self, g_map, pos_p, pos_opp):
-        if (not(0 <= pos_p[0] < len(g_map) and \
-            0 <= pos_p[1] < len(g_map))):
+        if (not(0 <= pos_p[0] < len(g_map) and
+                0 <= pos_p[1] < len(g_map))):
             return False
 
         pos = g_map[pos_p[0]][pos_p[1]]
-
         return (pos == WALL or pos == TRAIL
                 or pos_p == pos_opp)
 
